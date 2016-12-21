@@ -15,6 +15,7 @@ module.exports = {
         qiyejingying: path.resolve(APP_PATH, './qiyejingying/index.js'),
         qiyejiance: path.resolve(APP_PATH, './qiyejiance/index.js'),
         huanbaojiance: path.resolve(APP_PATH, './huanbaojiance/index.js'),
+        qiyehuaxiang: path.resolve(APP_PATH, './qiyehuaxiang/index.js'),
         vendors: ['jquery', 'highcharts', 'd3', 'lodash', 'babel-polyfill']
     },
     output: {
@@ -101,6 +102,13 @@ module.exports = {
             template: path.resolve(TEM_PATH, './huanbaojiance/index.html'),
             filename: 'huanbaojiance.html',
             chunks: ['huanbaojiance', 'vendors'],
+            inject: 'body'
+        }),
+        new HtmlwebpackPlugin({
+            title: '企业画像',
+            template: path.resolve(TEM_PATH, './qiyehuaxiang/index.html'),
+            filename: 'qiyehuaxiang.html',
+            chunks: ['qiyehuaxiang', 'vendors'],
             inject: 'body'
         })
     ]
