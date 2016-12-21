@@ -1,0 +1,87 @@
+@import '../../node_modules/normalize.css/normalize.css';
+
+/*start of variables*/
+
+$fontFamily:"Microsoft YaHei";
+@mixin mFont($size: 12px, $color:#fff) {
+    color: $color;
+    font-size: $size;
+    font-family: $fontFamily;
+    font-weight: normal;
+}
+
+@mixin mBackground($url, $percent:50%, $repeat:no-repeat) {
+    background-image: url($url);
+    background-size: $percent; //$width $height;
+    background-position: 50% 50%;
+    background-repeat: $repeat;
+}
+
+@mixin mGradualBg($startColor, $stopColor) {
+    background-image: -webkit-linear-gradient(top, $startColor, $stopColor);
+    /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+    background-image: -moz-linear-gradient(top, $startColor, $stopColor);
+    /* For Firefox (3.6 to 15) */
+    background-image: -o-linear-gradient(top, $startColor, $stopColor);
+    /* For old Opera (11.1 to 12.0) */
+    background-image: linear-gradient(to bottom, $startColor, $stopColor);
+    /* Standard syntax; must be last */
+}
+
+@mixin mProgressBar($bgcolor, $cColor) {
+    background-color: rgba( red($bgcolor), green($bgcolor), blue($bgcolor), 0.5);
+    height: 12px;
+    border-radius: 10px;
+    position: relative;
+    margin-top: -14px;
+    &:before {
+        background-color: $cColor;
+        content: "";
+        height: 12px;
+        width: 12px;
+        border-radius: 10px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+}
+
+@mixin rotate($degree:10deg) {
+    -webkit-transform: rotate($degree);
+    -moz-transform: rotate($degree);
+    -ms-transform: rotate($degree);
+    -o-transform: rotate($degree);
+    transform: rotate($degree);
+}
+
+%clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+        font: 0/0 a;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+/*End of variables*/
+
+@font-face {
+    font-family: 'mNumFont';
+    src: url('../font/DS-DIGI.eot?#iefix') format('embedded-opentype');
+    //url('../font/ds-digi.woff2') format('woff2'),
+    //url('../font/ds-digi.woff') format('woff');
+    //src:url('../font/ds-digi.ttf');//digifaw.ttf
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-width: 1366px;
+    padding: 0px;
+    margin: 0px;
+}
