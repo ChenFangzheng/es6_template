@@ -10,7 +10,7 @@ $fontFamily:"Microsoft YaHei";
     font-weight: normal;
 }
 
-@mixin mBackground($url, $percent:50%, $repeat:no-repeat) {
+@mixin mBackground($url, $percent:100%, $repeat:no-repeat) {
     background-image: url($url);
     background-size: $percent; //$width $height;
     background-position: 50% 50%;
