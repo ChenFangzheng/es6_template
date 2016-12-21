@@ -1,0 +1,51 @@
+.ItemList {
+    ul {
+        margin: 0.8rem 0rem 1.5rem 0rem;
+        padding: 0;
+        list-style: none;
+        li {
+            height: 1.375rem;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            .leftPart {
+                display: flex;
+                width: 70%;
+            }
+            img {
+                height: 60%;
+                align-self: center;
+                margin-bottom: 0.25rem;
+                margin-right: 0.4rem;
+            }
+            span {
+                @include mFont(0.75rem);
+                align-self: center;
+            }
+            .companyName {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .order {
+                font-size: 0.875rem;
+                margin-left: 0.5rem;
+                margin-right: 1rem;
+            }
+            .value {
+                @include mFont(0.875rem, #09d8e2);
+                margin-right: 0.5rem;
+            }
+        }
+        .odd {
+            &:nth-child(odd) {
+                background-color: rgba($color: #013f6b, $alpha: 0.6);
+            }
+        }
+        .even {
+            &:nth-child(even) {
+                background-color: rgba($color: #013f6b, $alpha: 0.6);
+            }
+        }
+    }
+}
