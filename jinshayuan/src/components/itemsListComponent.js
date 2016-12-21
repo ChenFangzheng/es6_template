@@ -12,10 +12,16 @@ export class ItemsList {
      * odd for odd items set Bg
      * even for even items set Bg
      *  */
-    render(data, itemBg, append) {
+    render(data, itemBg, itemLogoColor, append) {
         let itemsHtml = '',
-            bgClass = itemBg == undefined ? "" : itemBg.toLowerCase(),
+            itemLogo,
+            bgClass = itemBg == undefined ? "" : itemBg.toLowerCase();
+        if (itemLogoColor) {
+            itemLogo = require('../images/b_finger.png');
+        } else {
             itemLogo = require('../images/or_finger.png');
+        }
+
 
         data.sort((a, b) => a.order - b.order);
 

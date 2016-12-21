@@ -3,8 +3,10 @@ import './index.scss';
 import { ItemsList } from '../components/itemsListComponent';
 import { getdata } from './dataProvider.js';
 
-let logtongqiye = new ItemsList("longTouQYList", "龙头企业 (工业产值)");
+let longtongqiye = new ItemsList("longTouQYList", "龙头企业 (工业产值)");
+let nashuilongtou = new ItemsList("topRate", "纳税龙头企业")
 
 getdata().then(function ({indusProduction, increaseDistribution}) {
-    logtongqiye.render(indusProduction.topCompany, "odd");
+    longtongqiye.render(indusProduction.topCompany, "odd");
+    nashuilongtou.render(increaseDistribution.topRateCompany, "even", "blue");
 });
