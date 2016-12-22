@@ -12,26 +12,26 @@ export class CustomPie {
     }
 
     getSeries(data, colors) {
-        var total = data.map(function (el) { return el.value; })
+        let total = data.map(function (el) { return el.value; })
             .reduce(function (p, c) {
                 return p + c;
             });
-        var newData = data.map(function (el) {
+        let newData = data.map(function (el) {
             el.count = el.value;
             el.value = el.value * 100 / total;
             return el;
         });
         data = newData;
 
-        var start = 0;
-        var series = [];
+        let start = 0;
+        let series = [];
         let rDataItem;
-        for (var i = 0; i < data.length; i++) {
-            var end = start + 360 * data[i].value / 100,
+        for (let i = 0; i < data.length; i++) {
+            let end = start + 360 * data[i].value / 100,
                 pieSize = i == 0 ? 170 : 155;
             rDataItem = {};
             rDataItem.color = colors[i];
-            rDataItem.y = data[i].value;
+            rDataItem.y = parseFloat(data[i].value.toFixed(1));
             rDataItem.name = data[i].name;
             series.push({
                 name: data[i].name,
@@ -50,6 +50,11 @@ export class CustomPie {
 
     drawChart(data, colors) {
         let series = this.getSeries(data, colors);
+        let total = data.map(function (el) { return el.value; })
+            .reduce(function (p, c) {
+                return p + c;
+            });
+        let percent = series.y * 100 / total;
         Highcharts.chart(this.containerId, {
             chart: {
                 type: 'pie',
@@ -59,7 +64,7 @@ export class CustomPie {
                 text: '行业占比',
                 floating: true,
                 align: "center",
-                y: 84,
+                y: 110,
                 style: {
                     color: "#fff"
                 }
@@ -76,7 +81,13 @@ export class CustomPie {
                 }
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                useHTML: true,
+                // borderColor: 'transparent',
+                // backgroundColor: 'transparent',
+                // shadow: false,
+                headerFormat: '<div>',
+                pointFormat: '{series.name}: 占比{point.y}%<br><span>213</span>',
+                footerFormat: '</div>',
             },
             plotOptions: {
                 pie: {
