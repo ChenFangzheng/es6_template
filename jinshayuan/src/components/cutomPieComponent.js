@@ -13,10 +13,27 @@ export class CustomPie {
         Highcharts.chart(this.containerId, {
             chart: {
                 type: 'pie',
-                backgroundColor: 'rgba(0,0,0,0)',
+                backgroundColor: 'rgba(0,0,0,0)'
             },
             title: {
-                text: ''
+                text: '行业占比',
+                floating: true,
+                align: "center",
+                y: 84,
+                itemStyle: {
+                    color: "#fff"
+                }
+            },
+            credits: { enabled: false, },
+            legend: {
+                margin: 5,
+                symbolWidth: 10,
+                symbolHeight: 10,
+                itemDistance: 6,
+                width: "100%",
+                itemStyle: {
+                    color: "#fff"
+                }
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -28,7 +45,20 @@ export class CustomPie {
                     dataLabels: {
                         enabled: false
                     },
-                    showInLegend: true
+                    showInLegend: true,
+                    borderWidth: 0
+                },
+                series: {
+                    point: {
+                        events: {
+                            legendItemClick: function () {
+                                return false; // <== returning false will cancel the default action
+                            },
+                            click: function () {
+                                return false;
+                            }
+                        }
+                    }
                 }
             },
             series: [{
@@ -36,16 +66,16 @@ export class CustomPie {
                 colorByPoint: true,
                 innerSize: "60%",
                 data: [{
-                    name: 'Chrome',
+                    name: '食品加工业',
                     y: 24.03,
                 }, {
-                    name: 'Firefox',
+                    name: '机械制造业',
                     y: 10.38
                 }, {
-                    name: 'Safari',
+                    name: '林业加工业',
                     y: 4.77
                 }, {
-                    name: 'Opera',
+                    name: '其它',
                     y: 0.91
                 }]
             }]
