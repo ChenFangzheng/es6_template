@@ -36,7 +36,7 @@ export class ItemsList {
                          </li>`;
         }
 
-        let html = `<h3 class="componentTitle">龙头企业 (工业产值)</h3>
+        let html = `<h3 class="componentTitle">${this.title}</h3>
                     <ul>${itemsHtml}</ul>
                     `;
         let elem = document.createElement('div'),
