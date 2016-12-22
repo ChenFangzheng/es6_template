@@ -21,20 +21,21 @@ export class CustomPie {
             el.value = el.value * 100 / total;
             return el;
         });
-        data = newData;
 
         let start = 0;
         let series = [];
         let rDataItem;
-        for (let i = 0; i < data.length; i++) {
-            let end = start + 360 * data[i].value / 100,
+        for (let i = 0; i < newData.length; i++) {
+            let end = start + 360 * newData[i].value / 100,
                 pieSize = i == 0 ? 170 : 155;
             rDataItem = {};
             rDataItem.color = colors[i];
-            rDataItem.y = parseFloat(data[i].value.toFixed(1));
-            rDataItem.name = data[i].name;
+            rDataItem.y = parseFloat(newData[i].value.toFixed(1));
+            rDataItem.value = data[i].count;
+            rDataItem.unit = newData[i].unit;
+            rDataItem.name = newData[i].name;
             series.push({
-                name: data[i].name,
+                name: newData[i].name,
                 type: 'pie',
                 size: pieSize,
                 innerSize: 100,
@@ -83,10 +84,10 @@ export class CustomPie {
             tooltip: {
                 useHTML: true,
                 // borderColor: 'transparent',
-                // backgroundColor: 'transparent',
-                // shadow: false,
-                headerFormat: '<div>',
-                pointFormat: '{series.name}: 占比{point.y}%<br><span>213</span>',
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                shadow: false,
+                headerFormat: '<div class="pieTooltip">',
+                pointFormat: '{series.name}: 占比<span class="orange">{point.y}%</span><br><span class="orange">{point.value}</span><span>{point.unit}</span>',
                 footerFormat: '</div>',
             },
             plotOptions: {
