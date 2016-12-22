@@ -1,7 +1,8 @@
 @import '../sass/main.scss';
 body {
     @include mBackground('../images/jjfz_bg.jpg');
-    overflow: hidden;
+     min-height: 768px;
+     min-width: 1366px;
 }
 
 h1,
@@ -30,8 +31,7 @@ header {
 
 main {
     width: 98%;
-    height: 82.5%;
-    margin-top: 1.5%;
+    height: 84%;
     margin-left: 1%;
     overflow: hidden;
     display: flex;
@@ -88,8 +88,4 @@ footer {
     width: 100%;
     height: 6%;
     background: green;
-}
-
-#pieChart {
-    height: 100px;
 }
