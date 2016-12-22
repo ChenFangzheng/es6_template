@@ -8,8 +8,8 @@ let longtongqiye = new ItemsList("longTouQYList", "龙头企业 (工业产值)")
 let nashuilongtou = new ItemsList("topRate", "纳税龙头企业");
 let pie = new CustomPie("pieChart", "");
 
-getdata().then(function({indusProduction, increaseDistribution}) {
+getdata().then(function ({indusProduction, increaseDistribution}) {
     longtongqiye.render(indusProduction.topCompany, "odd");
     nashuilongtou.render(increaseDistribution.topRateCompany, "even", "blue");
-    pie.render();
+    pie.render(indusProduction.distribution);
 });

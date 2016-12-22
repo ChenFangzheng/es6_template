@@ -6,7 +6,7 @@ const data = {
             unit: "亿元"
         }, {
             name: "机械制造业",
-            value: 212,
+            value: 172,
             unit: "亿元"
         }, {
             name: "林业加工业",
