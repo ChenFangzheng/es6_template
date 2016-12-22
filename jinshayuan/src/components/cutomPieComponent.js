@@ -9,6 +9,14 @@ export class CustomPie {
     constructor(containerId, title) {
         this.containerId = containerId;
         this.title = title;
+        this.width = $(`#${this.containerId}`).width();
+        this.init();
+    }
+
+    init() {
+        let $container = $(`#${this.containerId}`);
+        $container.addClass('customPie');
+        $container.height(this.width * 4.8 / 6);
     }
 
     getSeries(data, colors) {
@@ -23,7 +31,8 @@ export class CustomPie {
         });
 
         let start = 0;
-        let series = [];
+        let series = [],
+            innerSize = this.width / 3;
         let rDataItem;
         for (let i = 0; i < newData.length; i++) {
             let end = start + 360 * newData[i].value / 100,
@@ -50,6 +59,7 @@ export class CustomPie {
     }
 
     drawChart(data, colors) {
+        let titleHeigth = this.width * 0.9 / 3;
         let series = this.getSeries(data, colors);
         let total = data.map(function (el) { return el.value; })
             .reduce(function (p, c) {
@@ -65,7 +75,7 @@ export class CustomPie {
                 text: '行业占比',
                 floating: true,
                 align: "center",
-                y: 110,
+                y: titleHeigth,
                 style: {
                     color: "#fff"
                 }
@@ -77,9 +87,15 @@ export class CustomPie {
                 symbolHeight: 10,
                 itemDistance: 6,
                 width: "100%",
+                itemHoverStyle: {
+                    color: "#fff",
+                    "fontWeight": "normal"
+                },
                 itemStyle: {
-                    color: "#fff"
-                }
+                    color: "#fff",
+                    "fontWeight": "normal"
+                },
+                y: -20
             },
             tooltip: {
                 useHTML: true,

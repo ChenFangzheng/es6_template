@@ -89,17 +89,3 @@ footer {
     height: 6%;
     background: green;
 }
-
-#pieChart {
-    height: 250px;
-}
-.pieTooltip{
-    // width:120px;
-    // height:60px;
-    // @include mBackground('../images/pieTootip_bg.png');
-    @include mFont(0.75rem);
-    .orange{
-        color: #ff9800;
-        font-weight: bold;
-    }
-}
