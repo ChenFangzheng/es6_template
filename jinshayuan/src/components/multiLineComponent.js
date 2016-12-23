@@ -18,10 +18,10 @@ export class MultiLine {
             item.zoneAxis = 'x';
             item.color = colors[i];
             item.fillColor = {
-                linearGradient: [0, 0, 0, 250],
+                linearGradient: [0, 0, 0, 200],
                 stops: [
                     [0, colors[i]],
-                    [0.8, stopColors[i]]
+                    [1, stopColors[i]]
                 ]
             };
             item.zones = [{

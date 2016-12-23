@@ -1,0 +1,76 @@
+@import '../sass/main.scss';
+
+@mixin mGradualBarBg($startColor, $stopColor) {
+    background-image: -webkit-linear-gradient(left, $startColor, $stopColor);
+    /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+    background-image: -moz-linear-gradient(left, $startColor, $stopColor);
+    /* For Firefox (3.6 to 15) */
+    background-image: -o-linear-gradient(left, $startColor, $stopColor);
+    /* For old Opera (11.1 to 12.0) */
+    background-image: linear-gradient(to right, $startColor, $stopColor);
+    /* Standard syntax; must be last */
+}
+
+.tradeDistribution{
+    margin-top: 1rem;
+    width: 100%;
+    ul{
+        list-style: none;
+        padding:0;
+        margin: 1rem 0.5rem;
+        li{
+            height: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+             align-items: center;
+            span{
+                display:flex;
+                width: 1.3rem;
+                height: 1.3rem;
+                border-radius: 0.65rem;
+                justify-content: center;
+                align-items: center;
+                background-color: #00ffff;
+                @include mFont(0.875rem, #000);
+                float: left; 
+            }
+            .leftPart{
+                overflow: hidden;
+                width: 80%;
+                float: left;
+                div{
+                    float: left;
+                }
+                
+                .percetage{
+                    @include mFont(1rem, #08c1cc);
+                    margin-top: 0.5rem;
+                }
+                .chart{
+                    margin: 0 0.4rem;
+                    width:70%;
+                    .tradeName{
+                        @include mFont(0.75rem,#9ac1e0);
+                    }
+                    .bar{
+                        height: 0.5rem;
+                        width: 100%;
+                        margin-top:0.2rem;
+                        background-color: rgba($color: #00ffff, $alpha: 0.14);
+                        .innerBar{
+                            height: 100%;
+                            // width: 80%;
+                            border-top-right-radius: 0.3rem;
+                            border-bottom-right-radius: 0.3rem;
+                            @include mGradualBarBg(rgba(0,255,255,0),rgba(0,255,255,1));
+                        }
+                    }
+                }
+            }
+            .value{
+                @include mFont(1rem, #9ac1e0);
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}
