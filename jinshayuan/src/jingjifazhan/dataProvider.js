@@ -65,7 +65,7 @@ const data = {
         tradeDistribution: [
             {
                 name: "食品加工业",
-                value: 365,
+                value: 1765,
                 unit: "万元"
             }, {
                 name: "机械制造业",
@@ -81,7 +81,25 @@ const data = {
                 unit: "万元"
             }
         ],
-        headCompany: [],
+        headCompany: [
+            {
+                name: "食品加工业",
+                value: 1765,
+                unit: "万元"
+            }, {
+                name: "机械制造业",
+                value: 1395,
+                unit: "万元"
+            }, {
+                name: "林业加工业",
+                value: 1315,
+                unit: "万元"
+            }, {
+                name: "其它",
+                value: 1300,
+                unit: "万元"
+            }
+        ],
         topRateCompany: [{
             order: 2,
             name: "中机铸材科技(福建)有限公司",
