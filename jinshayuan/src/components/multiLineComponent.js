@@ -3,7 +3,7 @@ import './multiLineComponent.scss';
 import * as Highcharts from 'highcharts';
 import $ from 'jquery';
 
-const colors = ["#00ffff", "#00a8ff", "#42996e", "#ff9800"];
+const colors = ["#00b9b9", "#8f5501", "#007349", "#013f6b"];
 
 export class MultiLine {
     constructor(containerId) {
@@ -16,6 +16,13 @@ export class MultiLine {
         let mSeries = data.series.map((item, i) => {
             item.zoneAxis = 'x';
             item.color = colors[i];
+            item.fillColor = {
+                linearGradient: [0, 0, 0, 250],
+                stops: [
+                    [0, colors[i]],
+                    [0.8, 'rgba(0,0,0,0)']
+                ]
+            };
             item.zones = [{
                 value: 12
             },
