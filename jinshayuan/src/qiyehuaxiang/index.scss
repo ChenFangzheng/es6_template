@@ -77,6 +77,17 @@ body {
         height: -webkit-calc( 100% - 80px);
         height: -moz-calc( 100% - 80px);
         position: absolute;
+        .titile_y {
+            font-size: 22px;
+            font-family: 'Microsoft YaHei';
+            color: #fff;
+            line-height: 22px;
+            position: relative;
+            box-sizing: border-box;
+            padding-left: 2%;
+            border-left: 5px solid #FDC400;
+        }
+        .title_b {}
         .left {
             width: 50%;
             height: 100%;
@@ -188,12 +199,45 @@ body {
             }
             #polarChart {
                 width: 100%;
-                height: 60%;
+                height: 55%;
+                .labelctn {
+                    border: 1px solid #EC9B17;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    box-shadow: inset 0 0 15px #EC9B17;
+                    color: #EC9B17;
+                    cursor: pointer;
+                }
+                .label_selected {
+                    box-shadow: inset 0 0 47px #EC9B17 !important;
+                    color: white;
+                }
             }
             #tags {
                 width: 100%;
-                height: 25%;
-                background: yellow;
+                height: 30%;
+                background: rgba(255, 255, 255, 0.1);
+                box-sizing: border-box;
+                padding: 1% 0 0 1%;
+                ul {
+                    li {
+                        list-style-type: none;
+                        float: left;
+                        color: #00FDFF;
+                        font-size: 12px;
+                        font-family: 'Microsoft YaHei';
+                        border: 1px solid #06729C;
+                        box-shadow: inset 0 0 15px #06729C;
+                        border-radius: 5px;
+                        width: 135px;
+                        height: 40px;
+                        box-sizing: border-box;
+                        line-height: 40px;
+                        text-align: center;
+                        margin-left: 2%;
+                        margin-bottom: 1%;
+                    }
+                }
             }
         }
         .right {
