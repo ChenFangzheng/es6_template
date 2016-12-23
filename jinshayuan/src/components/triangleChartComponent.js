@@ -1,13 +1,13 @@
 import './triangleChartComponent.scss';
 import d3 from 'd3';
-const colors = ["#00b9b9", "#8f5501", "#007349", "#013f6b"];
+const colors = ["#00b9b9", "#013f6b", "#007349", "#8f5501"];
 
 export class TriangleChart {
     constructor(containerId, title) {
         this.containerId = containerId;
         this.title = title;
         this.width = document.getElementById(this.containerId).offsetWidth;
-        this.chartH = this.width / 2;
+        this.chartH = this.width * 0.55;
         this.triangleContainerId = "triangleChart";
         this.init();
     }
@@ -31,17 +31,18 @@ export class TriangleChart {
             .append("svg")
             .attr("width", this.width)
             .attr("height", this.chartH);
-        this.appendGradientToSvg(svg, colors[0]);
-        this.createTriangleChart(svg, 0, 0, this.chartH - 20);
-        this.triangleTween(svg, data, this.chartH - 20);
+        this.createTriangleChart(svg, this.chartH - 60);
+        this.triangleTween(svg, data, this.chartH - 60);
     }
 
-    createTriangleChart(svg, x, y, triangleBottomY) {
+    createTriangleChart(svg, triangleBottomY) {
+        let triangleWidth = this.width / 8,
+            distance = triangleWidth,
+            gradientId;
         let polygons = svg.append("g").attr("class", "top4")
-            .attr("transform", "translate(" + x + "," + y + ")");
-        let triangleWidth = this.width / 7,
-            distance = triangleWidth;
+            .attr("transform", "translate(" + (distance / 2) + "," + 0 + ")");
         for (let i = 0; i < 4; i++) {
+            gradientId = this.appendGradientToSvg(svg, colors[i], "gradient" + i);
             polygons.append("polygon")
                 .attr("class", "top4_polygon")
                 .attr("points", function () {
@@ -49,17 +50,17 @@ export class TriangleChart {
                         " " + (0 + i * (distance + triangleWidth) + ", " + triangleBottomY +
                             " " + (triangleWidth + i * (distance + triangleWidth))) + "," + triangleBottomY;
                 })
-                .style("fill", "url(#triangleGradient)");
+                .style("fill", `url(#${gradientId})`);
             polygons.append("text")
                 .attr("x", i * (distance + triangleWidth))
-                .attr("y", triangleBottomY - y)
+                .attr("y", triangleBottomY)
                 .attr("dy", ".35em")
                 .attr("fill", colors[i])
                 .attr("class", "top4_num");
             polygons.append("text")
-                .attr("x", i * (distance + triangleWidth))
-                .attr("y", triangleBottomY - y)
-                .attr("dy", ".35em")
+                .attr("x", i * (distance + triangleWidth) - 0.2 * distance)
+                .attr("y", triangleBottomY + 15)
+                .attr("id", "top4_name" + i)
                 .attr("class", "top4_name");
         }
     }
@@ -70,9 +71,9 @@ export class TriangleChart {
             return d.value;
         });
         let maxData = Math.max.apply(Math, tradeValue);
-        let triangleWidth = this.width / 7,
+        let triangleWidth = this.width / 8,
             distance = triangleWidth,
-            maxTriangleH = triangleBottomY * 4 / 5;
+            maxTriangleH = triangleBottomY * 3 / 4;
         let duration = 500;
         svg.selectAll(".top4_polygon")
             .data(data_t)
@@ -96,21 +97,28 @@ export class TriangleChart {
                 return triangleBottomY - Math.ceil(d.value * maxTriangleH / maxData) - 10;
             })
             .text(function (d) {
-                return d.value;
+                return d.value + d.unit;
             });
-        svg.selectAll(".top4_name").data(data_t)
-            .transition()
-            .duration(duration)
-            .ease("linear")
-            .text(function (d) {
-                return d.name;
-            });
+
+        for (let index = 0; index < 4; index++) {
+            let multiText = svg.select("#top4_name" + index);
+            let strs = this.splitStringByLine(data_t[index].name, 6);
+            multiText.selectAll("tspan")
+                .data(strs)
+                .enter()
+                .append("tspan")
+                .attr("x", multiText.attr('x'))
+                .attr("dy", "1em")
+                .text(d => d);
+        }
+
+        let strs = this.splitStringByLine()
     }
 
-    appendGradientToSvg(svg, color) {
+    appendGradientToSvg(svg, color, id) {
         var gradient = svg.append("defs")
             .append("linearGradient")
-            .attr("id", "triangleGradient")
+            .attr("id", id)
             .attr("x1", "0%")
             .attr("y1", "100%")
             .attr("x2", "0%")
@@ -140,7 +148,20 @@ export class TriangleChart {
             .attr("offset", "100%")
             .attr("stop-color", color)
             .attr("stop-opacity", 1);
-        return "triangleGradient";
+        return id;
+    }
+
+    splitStringByLine(str, step) {
+        let result = [],
+            start = 0,
+            stepNum = Math.ceil(str.length / step);
+
+        for (let i = 0; i < stepNum; i++) {
+            result.push(str.substr(start, step));
+            start += step;
+        }
+
+        return result;
     }
 
     render(data) {

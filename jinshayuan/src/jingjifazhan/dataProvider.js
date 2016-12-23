@@ -83,19 +83,19 @@ const data = {
         ],
         headCompany: [
             {
-                name: "食品加工业",
+                name: "中机铸材科技(福建)有限公司",
                 value: 1765,
                 unit: "万元"
             }, {
-                name: "机械制造业",
+                name: "二机床(集团)三明制造有限公司",
                 value: 1395,
                 unit: "万元"
             }, {
-                name: "林业加工业",
+                name: "中机铸材科技(福建)有限公司",
                 value: 1315,
                 unit: "万元"
             }, {
-                name: "其它",
+                name: "三明重型机器有限公司",
                 value: 1300,
                 unit: "万元"
             }
