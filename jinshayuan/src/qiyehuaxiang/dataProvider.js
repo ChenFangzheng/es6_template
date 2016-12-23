@@ -5,8 +5,8 @@ let data = {
     },
     intro: {
         legal_name: '张三',
-        annual_value: '>1000万',
-        regCapitas: '>1000万',
+        annual_value: '1000万',
+        regCapitas: '1000万',
         employees: '234人',
         mainproduct: '生物食品'
     },

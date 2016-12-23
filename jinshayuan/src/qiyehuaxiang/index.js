@@ -1,5 +1,6 @@
 import './index.scss';
 import * as Highcharts from 'highcharts';
+require('highcharts/highcharts-more')(Highcharts);
 import $ from 'jquery';
 import { getData } from './dataProvider';
 
@@ -19,11 +20,25 @@ function loadhead(data) {
     })
 }
 
-function loadpolar(data) {
+function loadintro(data) {
+    $('#legal_name').text(data.legal_name);
+    $('#annual_value').text(data.annual_value);
+    $('#regCapitas').text(data.regCapitas);
+    $('#employees').text(data.employees);
+    $('#mainproduct').text(data.mainproduct);
+}
 
-    $('#polarChart').highcharts({
+function loadpolar(data) {
+    let option = {
         chart: {
-            polar: true
+            polar: true,
+            backgroundColor: 'rgba(0, 0, 0, 0)'
+        },
+        credits: {
+            enabled: false
+        },
+        exporting: {
+            enabled: false
         },
         title: {
             text: ''
@@ -31,6 +46,9 @@ function loadpolar(data) {
         pane: {
             startAngle: 0,
             endAngle: 360
+        },
+        legend: {
+            enabled: false
         },
         xAxis: {
             categories: data.categories,
@@ -94,11 +112,14 @@ function loadpolar(data) {
                     }
                 }
             },
-            data: datas
+            data: data.datas
         }]
-    });
+    };
+    Highcharts.chart('polarChart', option);
 }
 
 getData().then(function(data) {
     loadhead(data.headdata);
+    loadintro(data.intro);
+    loadpolar(data.polar_data);
 });
