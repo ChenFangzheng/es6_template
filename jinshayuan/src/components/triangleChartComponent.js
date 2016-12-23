@@ -41,6 +41,7 @@ export class TriangleChart {
             gradientId;
         let polygons = svg.append("g").attr("class", "top4")
             .attr("transform", "translate(" + (distance / 2) + "," + 0 + ")");
+
         for (let i = 0; i < 4; i++) {
             gradientId = this.appendGradientToSvg(svg, colors[i], "gradient" + i);
             polygons.append("polygon")
@@ -62,7 +63,19 @@ export class TriangleChart {
                 .attr("y", triangleBottomY + 15)
                 .attr("id", "top4_name" + i)
                 .attr("class", "top4_name");
+
+            polygons.append("line")
+                .attr("class", "dashline");
         }
+
+        // draw the bottom line
+        polygons.append("line")
+            .attr("x1", 0)
+            .attr("y1", triangleBottomY + 5)
+            .attr("x2", this.width - distance)
+            .attr("y2", triangleBottomY + 5)
+            .style("stroke-width", 1)
+            .style("stroke", "#9ac1e0");
     }
 
     triangleTween(svg, data_t, triangleBottomY) {
@@ -100,6 +113,33 @@ export class TriangleChart {
                 return d.value + d.unit;
             });
 
+        svg.selectAll(".dashline")
+            .data(data_t)
+            .attr("x1", function (d, i) {
+                return triangleWidth / 2 + i * (distance + triangleWidth);
+            })
+            .attr("y1", triangleBottomY)
+            .attr("x2", function (d, i) {
+                return triangleWidth / 2 + i * (distance + triangleWidth);
+            })
+            .attr("y2", triangleBottomY)
+            .transition()
+            .duration(duration)
+            .ease("linear")
+            .attr("x1", function (d, i) {
+                return triangleWidth / 2 + i * (distance + triangleWidth);
+            })
+            .attr("y1", triangleBottomY)
+            .attr("x2", function (d, i) {
+                return triangleWidth / 2 + i * (distance + triangleWidth);
+            })
+            .attr("y2", function (d, i) {
+                return triangleBottomY - Math.ceil(d.value * maxTriangleH / maxData);
+            })
+            .style("stroke-width", 1)
+            .style("stroke-dasharray", "3,3")
+            .style("stroke", "#fff");
+
         for (let index = 0; index < 4; index++) {
             let multiText = svg.select("#top4_name" + index);
             let strs = this.splitStringByLine(data_t[index].name, 6);
@@ -111,8 +151,6 @@ export class TriangleChart {
                 .attr("dy", "1em")
                 .text(d => d);
         }
-
-        let strs = this.splitStringByLine()
     }
 
     appendGradientToSvg(svg, color, id) {
