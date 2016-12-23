@@ -7,7 +7,7 @@ export class TradeDistribution {
     }
 
     getHtml(data) {
-        data.sort((a, b) => a.value - b.value);
+        data.sort((a, b) => b.value - a.value);
         let itemsHtml = '',
             percetage,
             itemIndex = 0;
