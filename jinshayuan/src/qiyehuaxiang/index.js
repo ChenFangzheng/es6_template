@@ -50,13 +50,16 @@ function loadpolar(data) {
         legend: {
             enabled: false
         },
+        tooltip: {
+            enabled: false
+        },
         xAxis: {
             categories: data.categories,
             gridLineColor: '#00F6FF',
             labels: {
                 useHTML: true,
                 formatter: function() {
-                    return '<div class="labelctn" style="border:1px solid #EC9B17;border-radius:5px;padding:5px 10px;box-shadow: inset 0 0 5px #EC9B17;">' + this.value + '</div>';
+                    return '<div class="labelctn" index="' + data.categories.indexOf(this.value) + '" style="border:1px solid #EC9B17;border-radius:5px;padding:5px 10px;box-shadow: inset 0 0 5px #EC9B17;">' + this.value + '</div>';
                 }
             },
             tickmarkPlacement: 'on'
@@ -94,7 +97,7 @@ function loadpolar(data) {
             point: {
                 events: {
                     mouseOver: function() {
-                        console.log($(this.series.xAxis.labelGroup.div).find('.labelctn').eq(this.series.index));
+                        //console.log($(this.series.xAxis.labelGroup.div).find('.labelctn').eq(this.series.index));
                     }
                 }
             },
@@ -116,6 +119,12 @@ function loadpolar(data) {
         }]
     };
     Highcharts.chart('polarChart', option);
+
+    let array = $('.labelctn');
+    array.on('click', function() {
+        array.removeClass('label_selected');
+        $(this).addClass('label_selected');
+    })
 }
 
 getData().then(function(data) {
