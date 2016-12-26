@@ -1,4 +1,5 @@
 @import '../sass/main.scss';
+
 body {
     background-image: url('../images/jjfz_bg.jpg');
     background-size: 100%;
@@ -71,6 +72,9 @@ main {
                 width:64%;
                 height: 100%;
                // background: rgba(55, 255, 255, 0.2);
+               #lineChart{
+                   height: 94%;
+               }
             }
         }
         .bottomRow {
@@ -81,6 +85,7 @@ main {
                 margin-top: 1rem;
                 @include mBackground('../images/bottomzhibiao_bg.png');
                 background-position: 0 0;
+                height: 90%;
             }
         }
     }
