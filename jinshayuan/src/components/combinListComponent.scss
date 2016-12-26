@@ -1,0 +1,19 @@
+ul.combinlist {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    width: 98.5%;
+    li {
+        display: block;
+        width: 100%;
+        height: 80%;
+        margin: 3% 0 0 0;
+        border-right: 1px dashed #ccc;
+        &:last-child {
+            border-right: 0px;
+        }
+    }
+}

@@ -1,0 +1,97 @@
+@import '../sass/main.scss';
+.combin-title {
+    @include mFont(1rem);
+    text-align: center;
+    height: 20%;
+    span {
+        @include mFont(0.1rem);
+    }
+}
+
+.combin-content {
+    .combin-circle {
+        height: 6em;
+        width: 6em;
+        border-radius: 6em;
+        border: 3px solid #0089AB;
+        position: relative;
+        h3 {
+            @include mFont(1.8rem);
+            position: absolute;
+            top: 20%;
+            color: #00fdff;
+            width: 100%;
+            text-align: center;
+        }
+        span {
+            @include mFont(0.3rem);
+            position: absolute;
+            display: block;
+            width: 100%;
+            text-align: center;
+            top: 60%;
+            color: #fff;
+        }
+        img {
+            position: absolute;
+            top: 25%;
+            left: -5%;
+            width: 25%;
+        }
+    }
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    .combin-column {
+        height: 5.2em;
+        width: 6.8em;
+        border-bottom: 2px solid #00FDFF;
+        margin-left: -0.9em;
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px 0px 0px 10px;
+            width: 90%;
+            height: 100%;
+            display: flex;
+            li {
+                height: 100%;
+                margin: 0 10%;
+                position: relative;
+                align-self: flex-end;
+                border: 0px;
+                span {
+                    position: absolute;
+                }
+                span.value {
+                    margin-top: -20px;
+                    @include mFont(0.3rem);
+                }
+                span.text {
+                    @include mFont(0.3rem);
+                    color: #fff;
+                    position: absolute;
+                    // margin: 10px 0px 0px -10px;
+                    bottom: -20px;
+                    margin-left: -10px;
+                    // top: 105%;
+                    // left: -35%;
+                    display: block;
+                    width: 50px;
+                }
+            }
+            .c1 {
+                background-image: url(../images/c_1.png);
+                span.value {
+                    color: #04f7fb;
+                }
+            }
+            .c2 {
+                background-image: url(../images/c_2.png);
+                span.value {
+                    color: #00f791;
+                }
+            }
+        }
+    }
+}

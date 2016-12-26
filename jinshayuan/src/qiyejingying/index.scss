@@ -1,6 +1,9 @@
 @import '../sass/main.scss';
 body {
-    background: rgba($color: red, $alpha: 0.2);
+    // @include mBackground('../images/jjfz_bg.jpg');
+    background-image: url(../images/jjfz_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 h1,
@@ -17,7 +20,6 @@ header {
     overflow: hidden;
     display: flex;
     align-items: center;
-    background: red;
     h1 {
         @include mFont(2.18rem);
     }
@@ -32,71 +34,226 @@ main {
     justify-content: space-between;
     h2 {
         @include mFont(1rem);
+        border-left: 5px solid #ffcc00;
+        padding-left: 0.4rem;
     }
     .left {
         width: 70%;
         height: 100%;
         float: left;
-        background: gray;
         .topRow {
             width: 100%;
             height: 69%;
-            background: green;
             display: flex;
+            padding-top: 2%;
             .leftCol {
                 width: 60%;
-                background-color: #ccc;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
                 .leftTop {
-                    background-color: #fff;
                     width: 100%;
-                    height: 90%;
+                    height: 95%;
+                    >div {
+                        height: 85%;
+                        width: 90%;
+                        margin: 5% 3% 5% 3%;
+                    }
                 }
                 .leftBottom {
                     width: 100%;
-                    height: 10%;
+                    height: 5%;
                 }
             }
             .rightCol {
                 width: 40%;
-                background-color: #fff;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
+                h2 {
+                    margin-left: 3%;
+                }
                 .rightTop {
-                    background-color: red;
                     width: 100%;
                     height: 50%;
+                    >div {
+                        background-image: url(./images/qqygjg.png);
+                        background-repeat: no-repeat;
+                        padding: 5% 5%;
+                        margin-top: 4%;
+                        height: 62%;
+                        ul {
+                            list-style: none;
+                            padding: 0px;
+                            margin: 0px;
+                            display: flex;
+                            flex-wrap: wrap;
+                            li {
+                                width: 33%;
+                                height: 100px;
+                                >div {
+                                    background-image: url(./images/pepole.png);
+                                    background-repeat: no-repeat;
+                                    background-position: top;
+                                    width: 30%;
+                                    height: 100%;
+                                    float: left;
+                                    background-size: 60%;
+                                }
+                                span {
+                                    color: #fff;
+                                    float: left;
+                                    width: 60%;
+                                    &.value {
+                                        @include mFont(2rem);
+                                        // width: 45%;
+                                    }
+                                    &.name {
+                                        @include mFont(0.9rem);
+                                        word-wrap: break-word;
+                                        white-space: normal;
+                                        // width: 35%;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 .rightBottom {
-                    background-color: yellow;
+                    background-image: url(./images/qycxtrfb.png);
+                    background-repeat: no-repeat;
                     width: 100%;
                     height: 50%;
+                    h2 {
+                        margin-top: 5%;
+                    }
+                    >div {
+                        width: 100%;
+                        height: 80%;
+                    }
                 }
             }
         }
         .bottomRow {
             width: 100%;
             height: 31%;
-            background: blue;
+            background-image: url(./images/qyzyjjzb.png);
+            background-repeat: no-repeat;
         }
     }
     .right {
         width: 28%;
         height: 100%;
         float: left;
-        background: blue;
         .topRow {
             width: 100%;
             height: 50%;
-            background: green;
+            background-image: url(./images/qycxfb.png);
+            background-repeat: no-repeat;
+            h2 {
+                margin: 25px 0px 0px 25px;
+                float: left;
+            }
+            >div {
+                width: 100%;
+                float: left;
+            }
+            #qycxfb {
+                width: 95%;
+                height: 40%;
+                margin: 2% 3% 0 2%;
+            }
+            #cngsqyyj {
+                margin-top: 4%;
+                height: 30%;
+                ul {
+                    list-style: none;
+                    margin: 0px;
+                    padding: 0px;
+                    display: flex;
+                    flex-direction: column;
+                    height: 80%;
+                    li {
+                        height: 30%;
+                        margin-left: 5%;
+                        img {
+                            width: 18px;
+                            float: left;
+                        }
+                        span {
+                            color: #fff;
+                            display: block;
+                            float: left;
+                            @include mFont(0.9rem);
+                        }
+                        .title {
+                            width: 70%;
+                            padding-left: 1%;
+                        }
+                        .typename {
+                            width: 15%;
+                        }
+                        .value {
+                            color: #1bcbde;
+                        }
+                    }
+                }
+            }
         }
         .bottomRow {
             width: 100%;
             height: 50%;
-            background: red;
+            background-image: url(./images/qynhfb.png);
+            background-repeat: no-repeat;
+            h2 {
+                margin: 25px 0px 0px 25px;
+                float: left;
+            }
+            >div {
+                width: 100%;
+                float: left;
+            }
+            #qynhfb {
+                width: 95%;
+                height: 40%;
+                margin: 2% 3% 0 2%;
+            }
+            #nhcbqyyj {
+                margin-top: 4%;
+                height: 30%;
+                ul {
+                    list-style: none;
+                    margin: 0px;
+                    padding: 0px;
+                    display: flex;
+                    flex-direction: column;
+                    height: 80%;
+                    li {
+                        height: 30%;
+                        margin-left: 5%;
+                        img {
+                            width: 18px;
+                            float: left;
+                        }
+                        span {
+                            color: #fff;
+                            display: block;
+                            float: left;
+                            @include mFont(0.9rem);
+                        }
+                        .title {
+                            width: 70%;
+                            padding-left: 1%;
+                        }
+                        .typename {
+                            width: 15%;
+                        }
+                        .value {
+                            color: #1bcbde;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -104,5 +261,4 @@ main {
 footer {
     width: 100%;
     height: 6%;
-    background: green;
 }
