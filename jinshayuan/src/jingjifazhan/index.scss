@@ -1,8 +1,8 @@
 @import '../sass/main.scss';
 body {
     @include mBackground('../images/jjfz_bg.jpg');
-     min-height: 768px;
-     min-width: 1336px;
+    min-height: 768px;
+    min-width: 1336px;
 }
 
 h1,
@@ -105,7 +105,43 @@ main {
 footer {
     width: 100%;
     height: 6%;
-    background: green;
+    //background: green;
+    @include mBackground('../images/footer_bg.png');
+    background-position: bottom left;
+    display: flex;
+    justify-content: center;
+    ul{
+        display: flex;
+        align-items: flex-end;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            float:left;
+            height: 86%;
+            width: 5.6rem;
+            margin-right: 0.5rem;
+            @include mFont(1rem);
+            @include mBackground('../images/normal.png');
+            // background: red;
+            text-align: center;
+            transform: skewX(25deg);
+            cursor: pointer;
+            div{
+                 transform: skewX(-25deg);
+            }
+            &:hover{
+                @include mBackground('../images/selected.png');
+            }
+            &.selected{
+                 @include mBackground('../images/selected.png');
+            }
+        }
+    }
 }
 
 #tradeDistribution{
