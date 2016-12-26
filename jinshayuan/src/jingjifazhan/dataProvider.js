@@ -125,3 +125,19 @@ export function getdata() {
         resovled(data);
     });
 }
+
+/**
+ * 获取主要经济指标
+ */
+export function getZzjjzb() {
+    return new Promise((resovle, reject) => {
+        resovle([
+            { title: '工业总产值', unit: '亿元', tbzz: 8, dnwc: 112, sntq: 200, rise: false },
+            { title: '增加值', unit: '亿元', tbzz: 8, dnwc: 55, sntq: 86, rise: true },
+            { title: '上缴税费', unit: '亿元', tbzz: 8, dnwc: 212, sntq: 250, rise: true },
+            { title: '固定资产投资', unit: '亿元', tbzz: 26, dnwc: 112, sntq: 250, rise: true },
+            { title: '单位GDP能耗', unit: '吨标准媒/万元', tbzz: 8, dnwc: 120, sntq: 200, rise: true }
+
+        ]);
+    });
+}
