@@ -38,7 +38,8 @@ export class MultiLine {
             chart: {
                 type: 'areaspline',
                 backgroundColor: 'rgba(0,0,0,0)',
-                marginTop: 40
+                marginTop: 40,
+                marginLeft: 38
             },
             title: {
                 text: '',
