@@ -43,6 +43,8 @@ main {
     }
     h3.componentTitle {
         @include mFont(0.875rem);
+        padding-top:0.75rem;
+        padding-left: 0.5rem;
     }
     .left {
         width: 70%;
@@ -57,7 +59,8 @@ main {
                 width: 35%;
                 height: 100%;
                 float:left;
-                // @include mBackground('../images/topleftCol_bg.png');
+                @include mBackground('../images/gongyechanzhi_bg.png');
+                background-position: 20% 23%;
                 // background: rgba(255, 255, 255, 0.2);
             }
             .rightCol {
@@ -82,10 +85,19 @@ main {
             width: 100%;
             height: 70%;
             //background: green;
+            #tradeDistribution{
+                @include mBackground('../images/gongyezengjiazhi_bg.png');
+            }
+            #increaseTop4{
+                @include mBackground('../images/ltgongyezengjiazhi_bg.png');
+                background-position: top left;
+            }
         }
         .bottomRow {
             width: 100%;
             height: 27%;
+            @include mBackground('../images/nashuilongtou_bg.png');
+            background-position: top left;
         }
     }
 }
