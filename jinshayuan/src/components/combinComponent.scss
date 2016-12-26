@@ -10,9 +10,9 @@
 
 .combin-content {
     .combin-circle {
-        height: 6em;
-        width: 6em;
-        border-radius: 6em;
+        height: 5em;
+        width: 5em;
+        border-radius: 5em;
         border: 3px solid #0089AB;
         position: relative;
         h3 {
@@ -24,7 +24,7 @@
             text-align: center;
         }
         span {
-            @include mFont(0.3rem);
+            @include mFont(0.6rem);
             position: absolute;
             display: block;
             width: 100%;
@@ -65,10 +65,10 @@
                 }
                 span.value {
                     margin-top: -20px;
-                    @include mFont(0.3rem);
+                    @include mFont(0.6rem);
                 }
                 span.text {
-                    @include mFont(0.3rem);
+                    @include mFont(0.6rem);
                     color: #fff;
                     position: absolute;
                     // margin: 10px 0px 0px -10px;
