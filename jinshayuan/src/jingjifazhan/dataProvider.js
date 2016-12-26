@@ -116,10 +116,6 @@ const data = {
             order: 1,
             name: "中机铸材科技(福建)有限公司",
             value: "2135万元"
-        }, {
-            order: 5,
-            name: "三明重型机器有限公司",
-            value: "122万元"
         }]
     }
 }
