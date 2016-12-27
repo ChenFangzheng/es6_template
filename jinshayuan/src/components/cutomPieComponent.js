@@ -36,7 +36,7 @@ export class CustomPie {
         let rDataItem;
         for (let i = 0; i < newData.length; i++) {
             let end = start + 360 * newData[i].value / 100,
-                pieSize = i == 0 ? 170 : 155;
+                pieSize = i == 0 ? (this.width / 2 + 15) : this.width / 2;
             rDataItem = {};
             rDataItem.color = colors[i];
             rDataItem.y = parseFloat(newData[i].value.toFixed(1));
@@ -47,7 +47,7 @@ export class CustomPie {
                 name: newData[i].name,
                 type: 'pie',
                 size: pieSize,
-                innerSize: 100,
+                innerSize: this.width / 3,
                 startAngle: start,
                 endAngle: end,
                 data: [rDataItem]

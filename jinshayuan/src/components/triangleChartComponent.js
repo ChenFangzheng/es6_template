@@ -7,7 +7,7 @@ export class TriangleChart {
         this.containerId = containerId;
         this.title = title;
         this.width = document.getElementById(this.containerId).offsetWidth;
-        this.chartH = this.width * 0.55;
+        this.chartH = this.width * 0.5;
         this.triangleContainerId = "triangleChart";
         this.init();
     }
@@ -148,7 +148,7 @@ export class TriangleChart {
                 .enter()
                 .append("tspan")
                 .attr("x", multiText.attr('x'))
-                .attr("dy", "1em")
+                .attr("dy", "1.1em")
                 .text(d => d);
         }
     }

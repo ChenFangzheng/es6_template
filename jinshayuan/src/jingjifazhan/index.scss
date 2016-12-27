@@ -96,7 +96,7 @@ main {
         //background: blue;
         .topRow {
             width: 100%;
-            height: 73%;
+            height: 69%;
             //background: green;
             #tradeDistribution {
                 @include mBackground('../images/gongyezengjiazhi_bg.png');
@@ -108,7 +108,7 @@ main {
         }
         .bottomRow {
             width: 100%;
-            height: 26%;
+            height: 30%;
             @include mBackground('../images/nashuilongtou_bg.png');
             background-position: top left;
         }
@@ -156,6 +156,7 @@ footer {
         }
     }
 }
+<<<<<<< HEAD
 
 #tradeDistribution {
     margin-top: 1rem;
@@ -235,3 +236,5 @@ footer {
         }
     }
 }
+=======
+>>>>>>> f224951485bd13b9f8b1a3199d6b5b6d662a336d
