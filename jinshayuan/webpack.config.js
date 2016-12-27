@@ -55,9 +55,6 @@ module.exports = {
         }, {
             test: /\.(png|jpg|ttf|svg|woff2|woff|eot)$/,
             loader: 'url?limit=1000000'
-        }, {
-            test: /\.html?$/,
-            loader: 'html'
         }]
     },
 
