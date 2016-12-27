@@ -86,20 +86,25 @@ body {
     margin: 0px;
 }
 
-html {
-    @media screen and (min-width: 1366px) and (max-width: 1400px) {
+
+@media screen and (min-width: 1366px) and (max-width: 1400px) {
+    html {
         font-size: 16px;
     }
-    @media screen and (min-width:1440px) and (max-width:1800px) {
+}
+@media screen and (min-width:1440px) and (max-width:1800px) {
+    html {
         font-size: 17px;
-        body {
-            height: 900px;
-        }
     }
-    @media(min-width:1920px) {
+    body {
+        height: 900px;
+    }
+}
+@media(min-width:1920px) {
+    html {
         font-size: 20px;
-        body {
-            height: 1080px;
-        }
+    }
+    body {
+        height: 1080px;
     }
 }
