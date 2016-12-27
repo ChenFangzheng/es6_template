@@ -1,11 +1,11 @@
 @import '../sass/main.scss';
-
-body {
+#container {
     background-image: url('../images/jjfz_bg.jpg');
-    background-size: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     min-height: 768px;
     min-width: 1366px;
+    height: 100%;
 }
 
 h1,
@@ -46,7 +46,7 @@ main {
     }
     h3.componentTitle {
         @include mFont(0.875rem);
-        padding-top:0.75rem;
+        padding-top: 0.75rem;
         padding-left: 0.5rem;
     }
     .left {
@@ -61,27 +61,27 @@ main {
             .leftCol {
                 width: 33%;
                 height: 100%;
-                float:left;
+                float: left;
                 @include mBackground('../images/gongyechanzhi_bg.png');
                 background-position: 20% 13%;
                 // background: rgba(255, 255, 255, 0.2);
             }
             .rightCol {
-                float:left;
-                padding-left:3%;
-                width:64%;
+                float: left;
+                padding-left: 3%;
+                width: 64%;
                 height: 100%;
-               // background: rgba(55, 255, 255, 0.2);
-               #lineChart{
-                   height: 94%;
-               }
+                // background: rgba(55, 255, 255, 0.2);
+                #lineChart {
+                    height: 94%;
+                }
             }
         }
         .bottomRow {
             width: 100%;
-            height: 30%;
+            height: 27%;
             //background: blue;
-            #bottomCharts{
+            #bottomCharts {
                 margin-top: 1rem;
                 @include mBackground('../images/bottomzhibiao_bg.png');
                 background-position: 0 0;
@@ -98,10 +98,10 @@ main {
             width: 100%;
             height: 73%;
             //background: green;
-            #tradeDistribution{
+            #tradeDistribution {
                 @include mBackground('../images/gongyezengjiazhi_bg.png');
             }
-            #increaseTop4{
+            #increaseTop4 {
                 @include mBackground('../images/ltgongyezengjiazhi_bg.png');
                 background-position: top left;
             }
@@ -123,18 +123,18 @@ footer {
     background-position: bottom left;
     display: flex;
     justify-content: center;
-    ul{
+    ul {
         display: flex;
         align-items: flex-end;
         height: 100%;
         padding: 0;
         margin: 0;
         list-style: none;
-        li{
+        li {
             display: flex;
             align-items: center;
             justify-content: center;
-            float:left;
+            float: left;
             height: 86%;
             width: 5.6rem;
             margin-right: 0.5rem;
@@ -144,23 +144,24 @@ footer {
             text-align: center;
             transform: skewX(25deg);
             cursor: pointer;
-            div{
-                 transform: skewX(-25deg);
+            div {
+                transform: skewX(-25deg);
             }
-            &:hover{
+            &:hover {
                 @include mBackground('../images/selected.png');
             }
-            &.selected{
-                 @include mBackground('../images/selected.png');
+            &.selected {
+                @include mBackground('../images/selected.png');
             }
         }
     }
 }
 
-#tradeDistribution{
+#tradeDistribution {
     margin-top: 1rem;
     width: 100%;
-    @mixin mGradualBarBg($startColor, $stopColor) {
+    @mixin mGradualBarBg($startColor,
+    $stopColor) {
         background-image: -webkit-linear-gradient(left, $startColor, $stopColor);
         /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
         background-image: -moz-linear-gradient(left, $startColor, $stopColor);
@@ -170,61 +171,65 @@ footer {
         background-image: linear-gradient(to right, $startColor, $stopColor);
         /* Standard syntax; must be last */
     }
-    ul{
+    ul {
         list-style: none;
-        padding:0;
+        padding: 0;
         margin: 1rem 0.5rem;
-        li{
+        li {
             height: 2.5rem;
             display: flex;
             justify-content: space-between;
-             align-items: center;
-            span{
-                display:flex;
+            align-items: center;
+            span {
+                display: flex;
                 width: 1.3rem;
                 height: 1.3rem;
                 border-radius: 0.65rem;
                 justify-content: center;
                 align-items: center;
                 background-color: #00ffff;
-                @include mFont(0.875rem, #000);
-                float: left; 
+                @include mFont(0.875rem,
+                #000);
+                float: left;
             }
-            .leftPart{
+            .leftPart {
                 overflow: hidden;
                 width: 80%;
                 float: left;
-                div{
+                div {
                     float: left;
                 }
-                
-                .percetage{
-                    @include mFont(1rem, #08c1cc);
+                .percetage {
+                    @include mFont(1rem,
+                    #08c1cc);
                     margin-top: 0.5rem;
                 }
-                .chart{
+                .chart {
                     margin: 0 0.4rem;
-                    width:75%;
-                    .tradeName{
-                        @include mFont(0.75rem,#9ac1e0);
+                    width: 75%;
+                    .tradeName {
+                        @include mFont(0.75rem,
+                        #9ac1e0);
                     }
-                    .bar{
+                    .bar {
                         height: 0.5rem;
                         width: 100%;
-                        margin-top:0.2rem;
+                        margin-top: 0.2rem;
                         background-color: rgba($color: #00ffff, $alpha: 0.14);
-                        .innerBar{
+                        .innerBar {
                             height: 100%;
                             width: 80%;
                             border-top-right-radius: 0.3rem;
                             border-bottom-right-radius: 0.3rem;
-                            @include mGradualBarBg(rgba(0,255,255,0),rgba(0,255,255,1));
+                            @include mGradualBarBg(rgba(0, 255, 255, 0),
+                            rgba(0, 255, 255, 1));
                         }
                     }
                 }
             }
-            .value{
-                @include mFont(1rem, #9ac1e0);
+            .value {
+                @include mFont(1rem,
+                #9ac1e0);
                 margin-top: 0.5rem;
             }
         }

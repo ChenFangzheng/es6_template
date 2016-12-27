@@ -7,8 +7,7 @@ import ListComponent from './components/ListComponent';
 import QyjyzbztqsComponent from './components/QyjyzbztqsComponent';
 
 import CombinListComponent from '../components/combinListComponent';
-
-// import CombinComponent from '../components/combinComponent';
+import { TriangleChart } from '../components/triangleChartComponent';
 
 let qyygjg = new QyygjgComponent( 'qyygjg' );
 let qycxtrfb = new QycxtrfbComponent( 'qycxtrfb' );
@@ -18,7 +17,10 @@ let nhcbqyyj = new ListComponent( 'nhcbqyyj', '超出率' );
 
 let combinList = new CombinListComponent( 'zyjjzb' );
 let qyjyzbztqs = new QyjyzbztqsComponent( 'qyjyzbztqs' );
-// let com1 = new CombinComponent( '', '工业总产值' );
+
+
+let increaseTop4 = new TriangleChart( "qycxfb", "" );
+
 
 let render = function ( type ) {
     getQyygjg( type ).then( d => {
@@ -50,6 +52,24 @@ let render = function ( type ) {
 
     qyjyzbztqs.render( [] );
 
+
+    increaseTop4.render( [{
+        name: "供不应求",
+        value: 1765,
+        unit: "万元"
+    }, {
+        name: "供求均衡",
+        value: 1395,
+        unit: "万元"
+    }, {
+        name: "供大于求",
+        value: 1315,
+        unit: "万元"
+    }, {
+        name: "产能过剩",
+        value: 1300,
+        unit: "万元"
+    }] );
 }
 
 

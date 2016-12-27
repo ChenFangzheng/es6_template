@@ -78,3 +78,10 @@ export function getZzjjzb() {
         ] );
     });
 }
+
+/**
+ * 企业经营指标总体趋势
+ */
+export function getQyjyzbztqs() {
+
+}
